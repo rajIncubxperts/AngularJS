@@ -1,0 +1,35 @@
+body {
+  font-family: Arial;
+  color: white;
+}
+.mainContainer{
+ margin-top:- 15%;
+ display: flex;
+ justify-content: space-between;
+ padding: 400px;
+ 
+}
+button{
+  margin: 20px;
+}
+
+label{
+  color: black;
+}
+.form-control{
+  width: 100%;
+}
+
+.special-img 
+{
+    position: relative;
+    top: -5px;
+    float: left;
+    left: -5px;
+}
+.ageText{
+    color: #333;
+    font-size: 20px;
+    text-transform: uppercase;
+ 
+}

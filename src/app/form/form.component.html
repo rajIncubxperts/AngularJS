@@ -1,0 +1,72 @@
+ <!-- <h1>Form</h1> -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="mainContainer">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark pmd-navbar pmd-z-depth fixed-top">
+      <a class="navbar-brand" href="#">IncubXpert</a>
+      <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+          <a href="javascript:void(0);" class="btn-user dropdown-toggle media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+              <img class="mr-2" src="https://m.media-amazon.com/images/I/41jLBhDISxL._SY355_.jpg" width="40" height="40" alt="avatar">
+              <div class="media-body">
+                {{arr.firstName}}  <br>
+                {{arr.email}}
+              </div>
+          </a>
+      </div>
+  </nav>
+  <div class="split left">
+    <div class="centered">
+      <div class="leftTxt">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">DOB :</label>
+          <input type="date" class="form-control" [(ngModel)]="age" placeholder="Enter DOB">
+          </div>
+      </div><br>
+      <button type="button" class="btn btn-outline-primary" (click)="agecaltin()">Select Date to age calculate</button>
+    </div><br><br>
+    <h2 [ngStyle]="{'color' : showAge < 18 ? 'red' : 'green'}"> {{showAge}}</h2>
+  </div>
+
+  
+    <div class="centered">  
+      
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">First Name:</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="arr.firstName" placeholder="Enter first Name">
+        </div>
+        <div class="mb-3"> 
+          <label for="exampleInputPassword1" class="form-label">Last Name:</label>
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="arr.lastName" placeholder="Enter last name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address:</label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="arr.email" id="exampleInputEmail1" placeholder="name@example.com">
+        
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1" class="form-label">Mobile No</label>
+          <input type="number" class="form-control" name="mobileNo" [(ngModel)]="arr.mobileNo" id="exampleInputPassword1" placeholder="Enter Mobile Number">
+        </div>
+        <button type="submit" class="btn btn-outline-primary" (click)="data()">Submit</button> 
+      
+       
+    </div>
+ 
+</div>
+
+  <script>
+    // Data Picker Initialization
+     $('.datepicker').datepicker({
+  inline: true
+});
+  </script>
+</body>
+</html> 
+
