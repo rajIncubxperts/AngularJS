@@ -1,0 +1,23 @@
+        <div>
+          <table class="table">
+            <tr> <th scope="col">Sr No</th>   
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th  colspan="2" >Action</th>
+            </tr>
+            <tbody *ngFor="let p of user_arr">
+                <tr>
+                    <th scope="col">1</th>
+                    <td>{{p.firstName}}</td>
+                    <td>{{p.lastName}}</td>
+                    <td>{{p.date}}</td>
+                    <td>{{p.gender}}</td>
+                    <td><button type="button" value="Edit"  (click)="editFill(p)" class="btn btn-primary" style="background-color: rgb(46, 224, 70)">Edit</button> &nbsp;&nbsp;
+                    <button type="button"  value="Delete" style="background-color: rgb(224, 46, 46)" class="btn btn-primary" (click)="delete(p)">Delete</button> 
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>

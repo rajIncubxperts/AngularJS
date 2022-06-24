@@ -1,0 +1,30 @@
+   <div class="row">
+    <div class="col-md-6">
+        <h2>Add Records</h2>
+        <form [formGroup]="rajForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name</label>
+              <input type="text" class="form-control" placeholder="Enter first name" name="firstName" formControlName="firstName">
+            </div>  
+            <div class="form-group">
+              <label for="exampleInputPassword1">Last Name</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter last name"  name="lastName" formControlName="lastName">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">DOB</label>
+                <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Select DOB" name="date" formControlName="date">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Gender</label>
+                <select class="form-control" placeholder="Select Gender" name="gender" formControlName="gender">
+                    <option>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
+              </div>
+            <button type="submit" class="btn btn-primary m-2" (click)="AddData()">ADD DATA</button>
+            <button type="reset" class="btn btn-primary" (click)="Clear()">Reset</button>
+          </form>     
+    </div>
+   </div>
