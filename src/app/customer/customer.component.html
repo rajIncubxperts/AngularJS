@@ -1,0 +1,160 @@
+<!-- <p>customer works!</p> -->
+<div class="mContainer ">
+<div class="container-fluid d-flex flex-row p-2">
+<div class="card" style="width: 18rem;">
+    <div class="card-body" >
+      <h5 class="card-title">Jan</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs.{{Jan}} /-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Feb</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs.{{Feb}}/-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">March</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs. {{March}} /-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">April</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs. {{April}} /-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">May</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs. {{May}} /-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">June</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs. {{June}} /-</h3>
+    </div>
+  </div>
+
+  <div class="card ms-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">July</h5>
+      <h3 class="card-subtitle mb-2 text-muted">Rs. 0 /-</h3>
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<!--Table-->
+<div class="container-fluid tableContainer">
+    <table class="table">
+      <tr> <th style="width: 20%" scope="col">Sr No</th>
+          <th  style="width: 40%" scope="col">Expenses</th> 
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+          <th style="width: 10%" scope="col">Action</th>
+      </tr>
+      <tbody>
+          <tr *ngFor="let data of Savedatalist;let i=index">
+              <th scope="col">{{i+1}}</th>
+              <td >{{data.expenses}}</td>
+              <td>{{data.amount}}</td>
+              <td>{{data.date}}</td>
+              <td colspan="1"> <button type="button" value="Edit" class="btn btn-primary" style="background-color: rgb(224, 46, 55)" (click)="Delete(i)">Delete</button> </td>
+              <td></td>
+          </tr>
+          
+          <!-- <tr *ngFor="let data of Savedatalist;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{data.expenses}}</td>
+            <td>{{data.amount}}</td>
+            <td (click)="Delete(i)">Delete</td>
+          </tr> -->
+          
+      </tbody>
+    </table>
+    <div class="row cMain" *ngIf="Savedatalist.length == 0">
+      <div class="col text-center">
+          <span class="text-secondary fs-2 fst-italic">
+              There are No Expenses Added!
+          </span>
+      </div>
+  </div>
+    </div>
+
+<!--ModelformButton-->
+<div class="container-fluid modal-footer">
+    <div class="add-employee">
+      <button type="button" class="btn btn-outline-success btn-lg " data-bs-toggle="modal"
+        data-bs-target="#exampleModal" #addEmployeeButton>Add Expenses</button>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ADD EXPENSES</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="employeeForm">
+  
+            <!-- PERSONAL INFORMATION -->
+            <div class="row">
+              <div class="col form-heading">
+                <h6 class="text-secondary fst-italic">Insert Details</h6>
+              </div>
+            </div>
+  
+            <div class="row mt-3">
+              <div class="col">
+                <label for="expenses" class="form-label">Expenses</label>
+                <input type="text" class="form-control" id="expenses" formControlName="expenses">
+              </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                 <label for="month" class="form-label">Month</label>
+                  <select class="form-select" formControlName="education" formControlName="month">
+                    <option value="default" selected>Select your Month</option>
+                    <option *ngFor="let option of monthOptions; let i = index;" value="{{option}}">
+                      {{option | titlecase}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+            <div class="row mt-3">
+              <div class="col">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" class="form-control" id="amount" formControlName="amount">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                <label for="datepicker" class="form-label">Date</label>
+                <input type="date" class="form-control" id="datepicker" formControlName="date" formControlName="date">
+              </div>
+  
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="AddExpenses()" >Insert</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
