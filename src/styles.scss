@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: "Poppins", sans-serif;
+  }
+  @media screen and (max-width: 995px) {
+    body {
+        background-color: rgb(178, 224, 178);
+        
+      }
+
+      .cMain{
+        visibility: hidden; 
+      }
+      .card{
+        width: 130px;
+        height: 15vh;
+    }
+
+    @media screen and (max-width: 766px) {
+      body {
+          background-color: rgb(206, 216, 114);
+          // width: 100%;
+          
+        }
+  
+        .cMain{
+          visibility: hidden; 
+        }
+        .card{
+          width: 130px;
+          height: 15vh;
+         margin-top:5px ;
+      }
+      
+}
+
+@media screen and (max-width: 480px) {
+  body {
+      background-color: rgb(83, 13, 72);
+      
+    }
+
+    .cMain{
+      visibility: hidden; 
+    }
+    .card{
+      width: 130px;
+      height: 15vh;
+     margin:5px ;
+  }
+
+}
+
+  }

@@ -1,0 +1,129 @@
+<!-- <p>customer works!</p> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-4">
+    <a class="navbar-brand ms-2" href="#">IncubXperts</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>  
+        </ul>
+    </div>
+  </nav>
+  
+  <div class="container-fluid mt-4 ml-2 ">
+    <div class="row ">
+      <h4 class="text-center">Add Expenses To Track Monthly Summary</h4>
+      <hr>
+      <div class="text-center" *ngIf="Savedatalist.length == 0" >
+        <span class="text-secondary text-center fs-2 fst-italic">
+          No Summary
+      </span>
+      </div>
+      
+      <div class="col" *ngFor="let data of monthlist">
+        <div class="card " >
+          <div class="card-body"><h4>{{data.date}}</h4></div>
+          <h3 class="card-subtitle mb-2 text-muted ValueA">Rs.{{data.value}} /-</h3>
+        </div>    
+      </div>
+      </div>
+      </div>
+  <hr>
+  
+  <!--Table-->
+  <div class="container-fluid tableContainer">
+      <table class="table">
+        <tr> <th style="width: 20%" scope="col">Sr No</th>
+            <th  style="width: 40%" scope="col">Expenses</th> 
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th style="width: 10%" scope="col">Action</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let data of Savedatalist;let i=index">
+                <th scope="col">{{i+1}}</th>
+                <td >{{data.expenses}}</td>
+                <td>{{data.amount}}</td>
+                <td>{{data.date}}</td>
+                <td colspan="1"> <button type="button" value="Edit" class="btn btn-primary" style="background-color: rgb(224, 46, 55)" (click)="Delete(i)">Delete</button> </td>
+                <td></td>
+            </tr>     
+        </tbody>
+      </table>
+      <div class="row cMain" *ngIf="Savedatalist.length == 0">
+        <div class="col text-center">
+            <span class="text-secondary fs-2 fst-italic">
+                There are No Expenses Added!
+            </span>
+        </div>
+    </div>
+      </div>
+  
+  <!--ModelformButton-->
+  <div class="container-fluid modal-footer">
+      <div class="add-employee">
+        <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Add Expenses</button>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >ADD EXPENSES</h5>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="customerForm">
+    
+              <!-- PERSONAL INFORMATION -->
+              <div class="row">
+                <div class="col form-heading">
+                  <h6 class="text-secondary fst-italic">Insert Details</h6>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <div class="form-group">
+                  <label for="expenses" class="form-label">Expenses</label>
+                  <input type="text" class="form-control" id="expenses" formControlName="expenses" required >      
+                  <small *ngIf="expensesName['expenses'].invalid && expensesName['expenses'].touched" class="text-danger">Name is Required</small> 
+                </div>
+                </div>
+              </div>
+  
+              <div class="row mt-3">
+                <div class="col">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="amount" formControlName="amount" required>
+                  <small *ngIf="expensesAmount['amount'].invalid && expensesAmount['amount'].touched" class="text-danger">Amount is Required</small> 
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col">
+                  <label for="datepicker" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="datepicker"  min="2022-01-01" max="2022-12-31" formControlName="date" formControlName="date" required>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" [disabled]="customerForm.invalid" data-bs-dismiss="modal" (click)="AddExpenses()" >Insert</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
