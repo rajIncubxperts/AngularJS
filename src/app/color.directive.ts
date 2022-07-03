@@ -1,21 +1,24 @@
-import { Directive, ElementRef} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appColor]'
 })
-export class ColorDirective {
-  colors = ['red', 'blue', 'green', 'yellow'];
+export class ColorDirective implements AfterViewInit, OnInit{
+
   constructor(private eRef: ElementRef) {
-    // this.changeColor(eRef);
-
-    // this.eRef.nativeElement.style.color="green"
-    this.eRef.nativeElement.style.textDecoration = 'underline';
+  
    }
+  ngOnInit(): void {
+    
+  }
 
-  //  changeColor(eRef: ElementRef) {
-  //   setInterval(() => {
-  //     eRef.nativeElement.style.color = this.colors[Math.floor(Math.random() * this.colors.length)];
-  //   });
-  //   }
+   ngAfterViewInit(): void {
+    const element = this.eRef.nativeElement
+      if(element.innerText.length > 4)
+        {
+          element.style.textDecoration = "underline";
+        }
+  }
+
 
 }

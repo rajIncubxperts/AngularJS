@@ -10,16 +10,14 @@
   <div>
     <table>
       <tr>
-          <th appColor>First Name</th>
-          <th appColor>Last Name</th>
-          <th appColor>Zip</th>
-          <th *ngIf="display" appColor>Phone No</th>
+          <th >First Name</th>
+          <th >Last Name</th>
+          <th >Zip</th>
+          <th *ngIf="display">Phone No</th>
       </tr>
       <tbody *ngFor="let data of customer">
           <tr >
-              <!-- <td *ngIf="(data.firstname.length > 4)" appColor>{{data.firstname}} </td> -->
-              <td *ngIf="(data.firstname.length > 3)" appColor>{{data.firstname}}<td *ngIf="(data.firstname.length <= 3)">{{data.firstname}}
-              </td>
+              <td appColor>{{data.firstname}}</td>
               <td [ngStyle]="(data.lastname[0] == 'm'|| data.lastname[0]== 'M' || data.lastname[0] =='c'|| data.lastname[0] =='C' || data.lastname[0] == 'd' || data.lastname[0]=='D') ? list:''">{{data.lastname}}</td>
               <td >{{data.zip}}</td>
               <td *ngIf="display">{{data.phone}}</td>
