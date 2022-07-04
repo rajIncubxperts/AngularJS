@@ -1,0 +1,588 @@
+<form class="row m-2 container-fluid " [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <h2>Reactive-Form</h2>
+  <h4>Basic Info</h4>
+  <div class="row m-2 ">
+    <div class="col-md-6 mt-2">
+      <label for="employesN" class="form-label h6">Employee No</label>
+      <input
+        type="text"
+        class="form-control"
+        id="employesN"
+        formControlName="employesN"
+        placeholder="Enter Employee ID"
+        required
+        minlength="1"
+        maxlength="7"
+        [class.is-invalid]="
+          employesN.invalid && (employesN.dirty || employesN.touched)
+        "
+      />
+      <div
+        *ngIf="employesN.invalid && (employesN.dirty || employesN.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="employesN.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="employesN.errors?.['minlength']">
+          This field must have at least 1 Number.
+        </div>
+        <div *ngIf="employesN.errors?.['maxlength']">
+          Only 6 digit Id Number required.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-2">
+      <label for="firstName" class="form-label h6">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="firstName"
+        placeholder="Your first name"
+        required
+        minlength="1"
+        maxlength="11"
+        [class.is-invalid]="
+          firstName.invalid && (firstName.dirty || firstName.touched)
+        "
+      />
+      <div
+        *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="firstName.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="firstName.errors?.['minlength']">
+          This field must have at least 1 character.
+        </div>
+        <div *ngIf="firstName.errors?.['maxlength']">
+          This field must have at most 10 characters.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-2">
+      <label for="middleName" class="h6">Middle Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="middleName"
+        placeholder="Your middle name"
+        required
+      />
+    </div>
+    <div class="col-md-6 mt-2">
+      <label for="lastName" maxlength="10" class="form-label h6"
+        >Last Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+        placeholder="Your last name"
+        required
+        minlength="1"
+        maxlength="11"
+        [class.is-invalid]="
+          lastName.invalid && (lastName.dirty || lastName.touched)
+        "
+      />
+      <div
+        *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="lastName.errors?.['required']">This field is required.</div>
+        <div *ngIf="lastName.errors?.['minlength']">
+          This field must have at least 1 character.
+        </div>
+        <div *ngIf="lastName.errors?.['maxlength']">
+          This field must have at most 10 characters.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h4>Work</h4>
+  <div class="col-md-6 mt-2">
+    <label for="Department" class="form-label h6">Department</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Department"
+      formControlName="Department"
+      placeholder="Department"
+      [class.is-invalid]="
+        Department.invalid && (Department.dirty || Department.touched)
+      "
+    />
+    <div
+      *ngIf="Department.invalid && (Department.dirty || Department.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="Department.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Location" class="form-label h6">Location</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Location"
+      formControlName="Location"
+      placeholder="Location"
+      [class.is-invalid]="
+        Location.invalid && (Location.dirty || Location.touched)
+      "
+    />
+    <div
+      *ngIf="Location.invalid && (Location.dirty || Location.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="Location.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Workphone" class="form-label h6">Work phone</label>
+    <input
+      type="number"
+      class="form-control"
+      id="Workphone"
+      formControlName="Workphone"
+      placeholder="Workphone"
+      [class.is-invalid]="
+        Workphone.invalid && (Workphone.dirty || Workphone.touched)
+      "
+    />
+    <div
+      *ngIf="Workphone.invalid && (Workphone.dirty || Workphone.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="Workphone.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Revision" class="form-label h6">Salary Revision Due On</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Revision"
+      formControlName="Revision"
+      placeholder="Revision"
+      [class.is-invalid]="
+        Revision.invalid && (Revision.dirty || Revision.touched)
+      "
+    />
+    <div
+      *ngIf="Revision.invalid && (Revision.dirty || Revision.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="Revision.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="DOB" class="form-label h6">Date of joining</label>
+    <input
+      type="date"
+      max="2022-12-31"
+      class="form-control"
+      id="DOB"
+      formControlName="DOJ"
+      placeholder="Date of joining"
+      [class.is-invalid]="DOJ.invalid && (DOJ.dirty || DOJ.touched)"
+    />
+    <div
+      *ngIf="DOJ.invalid && (DOJ.dirty || DOJ.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="DOJ.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+
+  <h4>Personal</h4>
+
+
+  <div class="col-md-6 mt-2">
+    <label for="MobilePhone" class="form-label h6">Mobile Phone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="MobilePhone"
+      formControlName="MobilePhone"
+      placeholder="Enter Mobile number"
+      required
+      minlength="1"
+      maxlength="11"
+      [class.is-invalid]="
+        MobilePhone.invalid && (MobilePhone.dirty || MobilePhone.touched)
+      "
+    />
+    <div
+      *ngIf="MobilePhone.invalid && (MobilePhone.dirty || MobilePhone.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="MobilePhone.errors?.['required']">
+        This field is required.
+      </div>
+      <div *ngIf="MobilePhone.errors?.['minlength']">
+        This field must have at least 1 number.
+      </div>
+      <div *ngIf="MobilePhone.errors?.['maxlength']">
+        This field must have at most 10 number.
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="col-md-6 mt-2">
+    <label for="Address" class="form-label h6">Address</label>
+    <input type="text" class="form-control" id="Address"  formControlName="Address" [class.is-invalid]="Address.invalid && (Address.dirty || Address.touched)"/>
+    <div
+    *ngIf="Address.invalid && (Address.dirty || Address.touched)"
+    class="invalid-feedback"
+  >
+    <div *ngIf="Address.errors?.['required']">This field is required.</div>
+  </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="OtherEmail" class="form-label h6">Other Email</label>
+    <input
+      type="text"
+      class="form-control"
+      id="OtherEmail"
+      formControlName="email"
+      placeholder="your-name@provider.com"
+      required
+      minlength="1"
+      maxlength="250"
+      class="form-control form-control-sm"
+      [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
+    />
+    <div
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="email.errors?.['required']">This field is required.</div>
+      <div *ngIf="email.errors?.['minlength']">
+        This field must have at least 1 character.
+      </div>
+      <div *ngIf="email.errors?.['maxlength']">
+        This field must have at most 50 characters.
+      </div>
+      <div
+        *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']"
+      >
+        Invalid email format.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Tags" class="form-label h6">Tags</label>
+    <input type="text" class="form-control" id="Tags"   formControlName="Tags"    [class.is-invalid]="
+    Tags.invalid && (Tags.dirty || Tags.touched)
+    " />
+    <div
+    *ngIf="Tags.invalid && (Tags.dirty || Tags.touched)"
+    class="invalid-feedback"
+  >
+    <div *ngIf="Tags.errors?.['required']">This field is required.</div>
+  </div>
+
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="BirthDate" class="form-label h6">Birth Date</label>
+    <input type="date" max="2022-12-31" class="form-control" (change)="ageCalculate()"  formControlName="BirthDate" [class.is-invalid]="
+    BirthDate.invalid && (BirthDate.dirty || BirthDate.touched)
+    "/>
+    <div
+    *ngIf="BirthDate.invalid && (BirthDate.dirty || BirthDate.touched)"
+    class="invalid-feedback"
+  >
+    <div *ngIf="BirthDate.errors?.['required']">This field is required.</div>
+  </div>
+  </div>
+ 
+  <div class="col-md-6 mt-2">
+    <label for="Shirt" class="form-label h6">Current T Shirt size</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      formControlName="Shirt"
+      required
+      [class.is-invalid]="
+      Shirt.invalid && (Shirt.dirty || Shirt.touched)
+      "
+    >
+      <option selected>Select T Shirt size</option>
+      <option *ngFor="let tshirt of tshirtArr | keyvalue">
+        {{tshirt.value}}
+      </option>
+    </select>
+    <div
+      *ngIf="Shirt.invalid && (Shirt.dirty || Shirt.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="Shirt.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label for="Maritalstatus" class="form-label h6">Marital status</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Maritalstatus"
+      formControlName="Maritalstatus"
+      placeholder="Marital status"
+      required
+      [class.is-invalid]="
+        Maritalstatus.invalid && (Maritalstatus.dirty || Maritalstatus.touched)
+      "
+    />
+    <div
+      *ngIf="
+        Maritalstatus.invalid && (Maritalstatus.dirty || Maritalstatus.touched)
+      "
+      class="invalid-feedback"
+    >
+      <div *ngIf="Maritalstatus.errors?.['required']">
+        This field is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label for="BloodGroup" class="form-label h6">Blood Group</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      formControlName="BloodGroup"
+      required
+      [class.is-invalid]="
+        BloodGroup.invalid && (BloodGroup.dirty || BloodGroup.touched)
+      "
+    >
+      <option selected>Select the Blood Group</option>
+      <option *ngFor="let item of bloodGArr | keyvalue">
+        {{item.value}}
+      </option>
+      
+    </select>
+    <div
+      *ngIf="BloodGroup.invalid && (BloodGroup.dirty || BloodGroup.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="BloodGroup.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Age" class="form-label h6">Age</label>
+    <input type="text" class="form-control" id="Age" placeholder="Your age"
+    required  formControlName="age"
+    [class.is-invalid]="
+    age.invalid && (age.dirty || age.touched)
+    "/>
+    <div
+    *ngIf="
+    age.invalid && (age.dirty || age.touched)
+    "
+    class="invalid-feedback"
+  >
+    <div *ngIf="age.errors?.['required']">
+      This field is required.
+    </div>
+  </div>  
+  </div>
+
+  <h4>Summary</h4>
+  <div class="col-md-6 mt-2">
+    <label for="JD" class="form-label h6">Job Description</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="AboutMe"
+      rows="3"
+      formControlName="JD"
+      placeholder="Write about Job Description"
+      required
+      [class.is-invalid]="JD.invalid && (JD.dirty || JD.touched)"
+    ></textarea>
+    <div
+      *ngIf="JD.invalid && (JD.dirty || JD.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="JD.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="AboutMe" class="form-label h6">AboutMe</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="AboutMe"
+      rows="3"
+      formControlName="AboutMe"
+      placeholder="Write about you"
+      required
+      [class.is-invalid]="AboutMe.invalid && (AboutMe.dirty || AboutMe.touched)"
+    ></textarea>
+    <div
+      *ngIf="AboutMe.invalid && (AboutMe.dirty || AboutMe.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="AboutMe.errors?.['required']">This field is required.</div>
+    </div>
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="Workphone" class=" form-label h6">Ask me about/Expertise</label>
+    <textarea type="text" class="form-control" rows="3" formControlName="Expertise" [class.is-invalid]="Expertise.invalid && (Expertise.dirty || Expertise.touched)"></textarea>
+    <div
+    *ngIf="Expertise.invalid && (Expertise.dirty || Expertise.touched)"
+    class="invalid-feedback"
+  >
+    <div *ngIf="Expertise.errors?.['required']">This field is required.</div>
+  </div>
+
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label for="pAddress" class="form-label h6">Present address</label>
+    <textarea type="text" class="form-control"  rows="3" formControlName="pAddress" [class.is-invalid]="pAddress.invalid && (pAddress.dirty || pAddress.touched)"></textarea>
+    <div
+    *ngIf="pAddress.invalid && (pAddress.dirty || pAddress.touched)"
+    class="invalid-feedback"
+  >
+    <div *ngIf="pAddress.errors?.['required']">This field is required.</div>
+  </div>
+
+  </div>
+  <div class="col-md-6 mt-2">
+    <label for="DOB" class=" h6">Residence phone</label>
+    <input type="number" class="form-control" id="DOB" formControlName="DOB"/>
+  </div>
+
+  <br /><br />
+  
+  <h4>Work experience</h4>
+  <div class="" formArrayName="aliases">
+    <div>
+      <div class="CreateButton ">
+        <button
+          type="button"
+          (click)="addAlias()"
+          class="btn"
+          aria-label="right Align"
+        >
+          <span class="" aria-hidden="true">+</span>
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="d-flex justify content between overflow-auto ">
+      <table class="table table-bordered">
+        <tr>
+          <th scope="col">Previous Company Name</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">From Date</th>
+          <th scope="col">To Date</th>
+          <th scope="col">Job Description</th>
+          <th scope="col">Relevance</th>
+        </tr>
+   
+        <tbody *ngFor="let alias of aliases.controls; let i = index">
+          <tr>
+            <td>
+              <input
+                type="text"
+                id="alias-{{ i }}"
+                class="form-control h6"
+                id="DOB"
+                [formControlName]="i"
+                formControlName="Company"
+                placeholder="Previous Company Name"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                id="alias-{{ i }}"
+                class="form-control h6"
+                id="DOB"
+                [formControlName]="i"
+                formControlName="Title"
+                placeholder="Title"
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                id="alias-{{ i }}"
+                class="form-control h6"
+                id="DOB"
+                [formControlName]="i"
+                formControlName="from"
+             
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                id="alias-{{ i }}"
+                class="form-control h6"
+                id="DOB"
+                [formControlName]="i"
+                formControlName="to"
+           
+              />
+            </td>
+            <td>
+              <textarea
+                type="number"
+                id="alias-{{ i }}"
+                class="form-control h6"
+                id="DOB"
+                [formControlName]="i"
+                formControlName="Relevance"
+                placeholder="Job Description"
+              ></textarea>
+            </td>
+            <td>
+              <select
+                class="form-select"
+                id="alias-{{ i }}"
+                [formControlName]="i"
+                formControlName="Relevance"
+                aria-label="Default select example"
+              >
+                <option value="deafult">Relevance</option>
+                <option >Yes</option>
+                <option >No</option>
+              </select>
+              <div
+                *ngIf="
+                  Relevance.invalid && (Relevance.dirty || Relevance.touched)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="Relevance.errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      
+      </table>
+    </div>
+    </div>
+
+      <div class="text-center">
+        <button type="submit"  class="btn pink">
+          Register
+        </button>
+        <button class="btn red" type="reset" (click)="onReset()" style="margin-left: 20px">Reset</button>
+      </div>
+    </div>
+  </div>
+</form>
