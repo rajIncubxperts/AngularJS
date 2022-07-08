@@ -1,0 +1,142 @@
+<!-- <p>update works!</p> -->
+<h2 class="text-center">Update Employee Data</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="updateForm">
+        <div class="container">
+          <label for="id" class="form-label h6">ID</label>
+          <input
+            type="text"
+            formControlName="id"
+            class="form-control"
+            class="alert-danger"
+            placeholder="id"
+          />
+
+          <label for="id" class="form-label h6">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            class="alert-danger"
+            placeholder="Enter First Name"
+            name="firstName"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['firstName']?.errors?.['required'] && (emplUpdated_form['firstName']?.touched || emplUpdated_form['firstName']?.dirty)"
+          >
+            Cannot be empty.
+          </div>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['firstName']?.errors?.['pattern']"
+          >
+            Only Characters Allowed.
+          </div>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['firstName']?.errors?.['minlength'] || emplUpdated_form['firstName']?.errors?.['maxlength']"
+          >
+            Min. 2 & Max. 10 Characters Allowed.
+          </div>
+
+          <label for="id" class="form-label h6">Last name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            placeholder="Enter Last Name"
+            name="lastName"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['lastName']?.errors?.['required'] && (emplUpdated_form['lastName']?.touched || emplUpdated_form['lastName']?.dirty)"
+          >
+            Cannot be empty.
+          </div>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['lastName']?.errors?.['pattern']"
+          >
+            Only Characters Allowed.
+          </div>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['lastName']?.errors?.['minlength'] || emplUpdated_form['lastName']?.errors?.['maxlength']"
+          >
+            Min. 2 & Max. 10 Characters Allowed.
+          </div>
+
+          <label for="lastName" class="form-label h6">Department</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="department"
+            name="department"
+          >
+            <option selected>Department</option>
+            <option value="Testing">Testing</option>
+            <option value="DevOps">DevOps</option>
+            <option value="Development">Development</option>
+          </select>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['department']?.errors?.['required'] && (emplUpdated_form['department']?.touched || emplUpdated_form['department']?.dirty)"
+          >
+            Cannot be empty.
+          </div>
+
+              <label for="location" class="form-label h6">Location</label>
+                <input class="form-control" formControlName="location" type="text" placeholder="Enter Location"  name="location" 
+                 />
+                 <div
+                 class="alert-danger"
+                 *ngIf="emplUpdated_form['location']?.errors?.['required'] && (emplUpdated_form['location']?.touched || emplUpdated_form['location']?.dirty)"
+                 >
+                 Cannot be empty.
+               </div>
+
+                  <label for="aboutme" class="form-label h6">About Me</label>
+                  <input class="form-control" formControlName="aboutme" type="text" placeholder="About You"  name="aboutme" 
+                    />
+                    <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['aboutme']?.errors?.['required'] && (emplUpdated_form['aboutme']?.touched || emplUpdated_form['aboutme']?.dirty)"
+          >
+          Cannot be empty.
+        </div>
+
+          <label for="joiningDate" class="form-label h6">Joining Date</label>
+          <input
+            class="form-control"
+            formControlName="joiningDate"
+            type="date"
+            placeholder="About You"
+            name="joiningDate"
+          />
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['joiningDate']?.errors?.['required'] && (emplUpdated_form['joiningDate']?.touched || emplUpdated_form['joiningDate']?.dirty)"
+          >
+            Cannot be empty.
+          </div>
+          <br /><br />
+
+          <div class="clearfix text-center">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="employeeUpdate()"
+            >
+              Update Data
+            </button>
+           
+          </div>
+          <br />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

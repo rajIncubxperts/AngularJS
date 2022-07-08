@@ -1,0 +1,38 @@
+
+<!-- <p>login works!</p> -->
+<form class="container" [formGroup]="loginForm"> 
+    <h3>Login</h3>
+
+    <label  for="username" class="form-label h6">User Name</label>
+    <input class="form-label h6" type="email"  id="username" name="username" formControlName="username"  required class="form-control form-control-sm" [class.is-invalid]="username.invalid && (username.dirty || username.touched)"  />
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid-feedback">
+      <div *ngIf="username.errors?.['required']">
+        This field is required.
+      </div>
+      </div>
+
+    <label  for="password" class="form-label h6">Password</label>
+    <div class="input-group input-group-sm has-validation">
+    <input class="form-label h6" [type]="user.showPassword ? 'text' : 'password'" id="password" name="password" formControlName="password" required minlength="3"  [class.is-invalid]="password.invalid && (password.dirty || password.touched)" />
+    <button type="button" class="btn btn-outline-secondary" (click)="user.showPassword = !user.showPassword">
+       <div class="Eyeclass">
+        <i class="bi ml-4 " [ngClass]="{'bi-eye-fill': !user.showPassword, 'bi-eye-slash-fill': user.showPassword}"></i>
+       </div>
+      </button>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+        <div *ngIf="password.errors?.['required']">
+          This field is required.
+        </div>
+        <div *ngIf="password.errors?.['minlength']">
+          This field must have at least 15 characters.
+        </div>
+      </div>
+    </div><br>
+    <div class="text-center">
+    <button class="btn pink w-75 rounded btnText"  (click)="login() ">
+        Login
+    </button><br><br>
+    <button class="btn red w-75 rounded btnText"  (click)="reset()">Reset</button> 
+  </div>
+</form>
+

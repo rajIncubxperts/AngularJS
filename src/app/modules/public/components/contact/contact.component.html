@@ -1,0 +1,21 @@
+<!-- <p>contact works!</p> -->
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">UserName</th>
+        <th scope="col">Email</th>
+        <th scope="col">WebSite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of fetched_arr">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.website}}</td>
+      </tr>
+    </tbody>
+  </table>

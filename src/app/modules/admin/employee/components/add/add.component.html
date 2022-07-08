@@ -1,0 +1,91 @@
+<!-- <h1>add</h1> -->
+
+<h2 class="text-center">Insert Employee Data</h2>
+<div class="container-fluid"> 
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="reactiveForm"  (ngSubmit)="onSubmit()" >
+                <div class="container">
+                  
+                  <label for="firstName" class="form-label h6">First Name</label>
+                  <input type="text" formControlName="firstName" class="form-control" class="alert-danger" placeholder="Enter First Name"
+                    name="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">This field is required</div>
+                      <div *ngIf="f.firstName.errors.pattern">Only String accept here</div>
+                    </div>
+      
+                  <label for="lastName" class="form-label h6">Last name</label>
+                  <input type="text" formControlName="lastName" class="form-control" placeholder="Enter Last Name" name="lastName"
+                  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">This field is required</div>
+                    <div *ngIf="f.lastName.errors.pattern">Only String accept here</div>
+                  </div>
+
+                  <label for="lastName" class="form-label h6">Department</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="department" name="department"
+                  [ngClass]="{ 'is-invalid': submitted && f.department.errors }">
+                    <option selected>Department</option>
+                    <option value="1">Testing</option>
+                    <option value="2">DevOps</option>
+                    <option value="3">Development</option>
+                  </select>
+            <br>
+                  <label for="mobileNumber" class="form-label h6">Mobile Number</label>
+                  <input class="form-control" formControlName="mobileNumber" type="text" placeholder="Enter Mobile Number"  name="mobileNumber" 
+                   [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" />
+                    <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                      <div *ngIf="f.mobileNumber.errors.required">This field is required</div>
+                      <div *ngIf="f.mobileNumber.errors.pattern">Only String accept here</div>
+                    </div>
+                    
+                    <label for="bloodGroup" class="form-label h6">Blood Group</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="bloodGroup" name="bloodGroup"
+                  [ngClass]="{ 'is-invalid': submitted && f.bloodGroup.errors }">
+                    <option selected>Blood Group</option>
+                    <option value="1">A+</option>
+                    <option value="2">AB+</option>
+                    <option value="3">B+</option>
+                    <option value="3">O-</option>
+                  </select>
+<br>
+                  <label for="jobDesc" class="form-label h6">Job Description</label>
+                    <input class="form-control" formControlName="jobDesc" type="text" placeholder="Enter Job Description"  name="jobDesc" 
+                     [ngClass]="{ 'is-invalid': submitted && f.jobDesc.errors }" />
+                      <div *ngIf="submitted && f.jobDesc.errors" class="invalid-feedback">
+                        <div *ngIf="f.jobDesc.errors.required">This field is required</div>
+                      </div>
+
+                  <label for="location" class="form-label h6">Location</label>
+                  <input class="form-control" formControlName="location" type="text" placeholder="Enter Location"  name="location" 
+                   [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                      <div *ngIf="f.location.errors.required">This field is required</div>
+                    </div>
+
+                    <label for="aboutme" class="form-label h6">About Me</label>
+                    <input class="form-control" formControlName="aboutme" type="text" placeholder="About You"  name="aboutme" 
+                     [ngClass]="{ 'is-invalid': submitted && f.aboutme.errors }" />
+                      <div *ngIf="submitted && f.aboutme.errors" class="invalid-feedback">
+                        <div *ngIf="f.aboutme.errors.required">This field is required</div>
+                      </div>
+                  
+                      <label for="joiningDate" class="form-label h6">Joining Date</label>
+                      <input class="form-control" formControlName="joiningDate" type="date" placeholder="About You"  name="joiningDate" 
+                       [ngClass]="{ 'is-invalid': submitted && f.joiningDate.errors }" />
+                        <div *ngIf="submitted && f.joiningDate.errors" class="invalid-feedback">
+                          <div *ngIf="f.joiningDate.errors.required">This field is required</div>
+                        </div>
+    
+                  <div class="clearfix text-center">
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal"  (click)="addEmployee()">Insert</button> &nbsp;
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Reset()">Reset</button>
+                  </div>
+                  <br>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="col-2"></div> -->
+    </div>      
+  </div>
