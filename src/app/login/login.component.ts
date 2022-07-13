@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/services/auth.service';
-import {
-  emailValidator,
-  EmailValidatorDirective,
-} from '../email-validator.directive';
 
 interface IUser {
   password: string;

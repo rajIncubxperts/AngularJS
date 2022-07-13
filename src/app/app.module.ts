@@ -12,8 +12,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './user/user.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { Router, RouterModule } from '@angular/router';
 
@@ -26,8 +24,6 @@ import { Router, RouterModule } from '@angular/router';
     NavbarComponent,
     NotfoundComponent,
     DashboardComponent,
-    UsersComponent,
-    UserComponent,
    
   ],
   imports: [
