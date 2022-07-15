@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpgetdata.getData().subscribe((data) => {
-this.data_fetched =data;
+    this.data_fetched =data;
       console.log(data);
     });
   }

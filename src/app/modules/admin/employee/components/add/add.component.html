@@ -27,9 +27,9 @@
                   <select class="form-select" aria-label="Default select example" formControlName="department" name="department"
                   [ngClass]="{ 'is-invalid': submitted && f.department.errors }">
                     <option selected>Department</option>
-                    <option value="1">Testing</option>
-                    <option value="2">DevOps</option>
-                    <option value="3">Development</option>
+                    <option value="Testing">Testing</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="Development">Development</option>
                   </select>
             <br>
                   <label for="mobileNumber" class="form-label h6">Mobile Number</label>
@@ -44,10 +44,10 @@
                     <select class="form-select" aria-label="Default select example" formControlName="bloodGroup" name="bloodGroup"
                   [ngClass]="{ 'is-invalid': submitted && f.bloodGroup.errors }">
                     <option selected>Blood Group</option>
-                    <option value="1">A+</option>
-                    <option value="2">AB+</option>
-                    <option value="3">B+</option>
-                    <option value="3">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="B+">B+</option>
+                    <option value="O-">O-</option>
                   </select>
 <br>
                   <label for="jobDesc" class="form-label h6">Job Description</label>
@@ -79,7 +79,7 @@
                         </div>
     
                   <div class="clearfix text-center">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal"  (click)="addEmployee()">Insert</button> &nbsp;
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" >Insert</button> &nbsp;
                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Reset()">Reset</button>
                   </div>
                   <br>

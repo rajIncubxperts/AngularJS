@@ -1,0 +1,4 @@
+			Home Page => Image Scratch
+Loader=> Login,AboutUS, ContactUs,List
+showPasswd button alinement=> Login and Register
+

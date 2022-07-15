@@ -2,9 +2,8 @@
 <!-- <p>add works!</p> -->
 <h1 class="text-center">Employee Table</h1>
 
-<div class="right_content m-4">
+<div class="right_content m-4 Container">
     <div class="section-content">
-      <form>
         <table class="table">
             <thead class="thead-dark">
               <tr >
@@ -35,13 +34,12 @@
                 <th scope="row">{{item.aboutme}}</th>
                 <th scope="row">{{item.joiningDate}}</th>
                 <th>
-                  <button (click)="emplEdit(item.id)">Edit</button></th>
+                  <button class="btn btn-secondary"  type="button" (click)="emplEdit(item.id)">Edit</button></th>
                   <th>
-                    <button (click)="emplDelete(item.id)">Delete</button>
+                    <button class="btn btn-danger" type="button" (click)="emplDelete(item.id)">Delete</button>
                   </th>
               </tr>
             </tbody>
           </table>
-     </form>
         </div>
         </div>

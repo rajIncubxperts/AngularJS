@@ -1,0 +1,22 @@
+
+ul li a, .brand-logo {
+    text-decoration: none;
+}   
+
+.navbarlink{
+    float: right;
+}
+
+@media screen and (max-width:600px)
+{
+    .navbarlink
+{
+    float: none ;
+
+}
+
+ul li a, .brand-logo {
+
+    color: blue;
+}   
+}

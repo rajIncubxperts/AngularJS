@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AddEmployeeService } from 'src/app/core/services/addEmployees/add-employee.service';
+import { AddEmployeeService } from 'src/app/core/services/Employees/add-employee.service';
 import { AuthTokenService } from 'src/app/core/services/auth-token.service';
-import { EmployeeService } from 'src/app/core/services/employees/employee.service';
+
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-list',
@@ -13,24 +14,38 @@ export class ListComponent implements OnInit {
   emplList:any =[{}];
   delEmpl: any=[];
 
-  constructor(private authtoken: AuthTokenService, private router: Router, private eService:EmployeeService, private aService: AddEmployeeService) { }
+  constructor(private authtoken: AuthTokenService, private router: Router,  private aService: AddEmployeeService) { }
 
   ngOnInit(): void {
-    // console.log(this.authtoken.getToken())
-    this.eService.get().subscribe(array => {
+    this.aService.get().subscribe(array => {
       this.emplList =array;
-      console.log("Get Data",this.emplList);
+      console.log('Get Data', this.emplList);
     })
   }
   emplDelete(id:number){
     this.aService.delete(id).subscribe(deldata =>  {
-      this.ngOnInit();
-      alert("Employee Deleted Successfully")
+      swal({
+        title: "Are you sure you want to delete?",
+        text: "Once deleted, you will not be able to recover this record!",
+        icon: "warning",
+        // buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Record Deleted Successful!", {
+            icon: "success",
+          });
+        } else {
+          swal("Something went wrong");
+        }
+        this.ngOnInit();
+      });
+     
     })
   }
 
   emplEdit(id:number){
     this.router.navigate([`admin/employee/update/${id}`])
-    // console.log("Edit works")
   }
 }

@@ -10,6 +10,14 @@ export class AddEmployeeService {
 
   constructor(public httpClinet: HttpClient, private authtoken: AuthTokenService) { }
 
+  get(): Observable<any>{
+    const headers ={ Authorization : `Bearer ${this.authtoken.getToken()}`}
+    return this.httpClinet.get<any>(
+      'https://tech-resources-core-api.azurewebsites.net/Employee',
+      {headers}
+    )
+  }
+
   addemp(dataCalled:string) : Observable<any>{
     const headers ={ Authorization : `Bearer ${this.authtoken.getToken()}`}
     return this.httpClinet.post(

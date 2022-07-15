@@ -75,6 +75,7 @@
             aria-label="Default select example"
             formControlName="department"
             name="department"
+            type="text"
           >
             <option selected>Department</option>
             <option value="Testing">Testing</option>
@@ -86,7 +87,48 @@
             *ngIf="emplUpdated_form['department']?.errors?.['required'] && (emplUpdated_form['department']?.touched || emplUpdated_form['department']?.dirty)"
           >
             Cannot be empty.
+          </div>  
+
+          <label for="location" class="form-label h6">Mobile Number</label>
+                <input class="form-control" formControlName="mobileNumber" type="text" placeholder="Enter Mobile Number"  name="mobileNumber" 
+                 />
+                 <div
+                 class="alert-danger"
+                 *ngIf="emplUpdated_form['mobileNumber']?.errors?.['required'] && (emplUpdated_form['mobileNumber']?.touched || emplUpdated_form['mobileNumber']?.dirty)"
+                 >  
+                 Cannot be empty.
+               </div>
+               <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['mobileNumber']?.errors?.['pattern']"
+          >
+            Only Number is Allowed.
           </div>
+          <div
+            class="alert-danger"
+            *ngIf="emplUpdated_form['mobileNumber']?.errors?.['minlength'] || emplUpdated_form['mobileNumber']?.errors?.['maxlength']"
+          >
+            Min. 1 & Max. 10 digits is Allowed.
+          </div>
+          
+          <label for="bloodGroup" class="form-label h6">Blood Group</label>
+          <select type="text" class="form-select" aria-label="Default select example" formControlName="bloodGroup" name="bloodGroup">
+          <option selected>Blood Group</option>
+          <option value="A+">A+</option>
+          <option value="AB+">AB+</option>
+          <option value="B+">B+</option>
+          <option value="O-">O-</option>
+        </select>
+            
+          <label for="location" class="form-label h6">JobDesc</label>
+          <input class="form-control" formControlName="jobDesc" type="text" placeholder="Enter Location"  name="jobDesc" 
+           />
+           <div
+           class="alert-danger"
+           *ngIf="emplUpdated_form['jobDesc']?.errors?.['required'] && (emplUpdated_form['jobDesc']?.touched || emplUpdated_form['jobDesc']?.dirty)"
+           >
+           Cannot be empty.
+         </div>
 
               <label for="location" class="form-label h6">Location</label>
                 <input class="form-control" formControlName="location" type="text" placeholder="Enter Location"  name="location" 
@@ -115,6 +157,7 @@
             type="date"
             placeholder="About You"
             name="joiningDate"
+            type="text"
           />
           <div
             class="alert-danger"

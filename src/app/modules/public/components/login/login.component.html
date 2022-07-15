@@ -14,7 +14,7 @@
     <label  for="password" class="form-label h6">Password</label>
     <div class="input-group input-group-sm has-validation">
     <input class="form-label h6" [type]="user.showPassword ? 'text' : 'password'" id="password" name="password" formControlName="password" required minlength="3"  [class.is-invalid]="password.invalid && (password.dirty || password.touched)" />
-    <button type="button" class="btn btn-outline-secondary" (click)="user.showPassword = !user.showPassword">
+    <button type="button" class="btn btn-outline-secondary btneye" (click)="user.showPassword = !user.showPassword">
        <div class="Eyeclass">
         <i class="bi ml-4 " [ngClass]="{'bi-eye-fill': !user.showPassword, 'bi-eye-slash-fill': user.showPassword}"></i>
        </div>
@@ -29,10 +29,10 @@
       </div>
     </div><br>
     <div class="text-center">
-    <button class="btn pink w-75 rounded btnText"  (click)="login() ">
+    <button class="btn pink w-75 rounded btnText" (click)="login() ">
         Login
     </button><br><br>
-    <button class="btn red w-75 rounded btnText"  (click)="reset()">Reset</button> 
+    <button class="btn red w-75 rounded btnText" (click)="reset()">Reset</button> 
   </div>
 </form>
 
